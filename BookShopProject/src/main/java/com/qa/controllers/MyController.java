@@ -45,10 +45,20 @@ public class MyController {
 	}
 
 	@RequestMapping("/edit/{id}")
-	public String updateBook(@RequestBody int id) {
-		bookService.FindOneBook(id);
+	public String updateBook(@PathVariable("id") int id, Model model) {
+		Iterable<Book> b = bookService.getBookById(id);
+		b=bookService.getBookById(id);
+		model.addAttribute("b", b);
+		
+		//bookService.getBookById(id);
 		return "book_edit";
 
+	}
+	@RequestMapping("/updateBookRecord")
+	public String updateBookRecord(@ModelAttribute Book b) {
+		bookService.updateBookRecord(b);
+
+		return "redirect:/admin_page";
 	}
 
 	@RequestMapping("/order_page")

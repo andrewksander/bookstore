@@ -2,6 +2,7 @@ package com.qa.repositories;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -43,5 +44,9 @@ public interface BookRepository extends CrudRepository<Book, Integer> {
 
 	@Query("SELECT b from Book b where b.price = :price")
 	public Iterable<Book> getBookByPrice(@Param("price") double price);
+	//@Modifying
+	@Query ("UPDATE Book b SET b.bookname =:bookname,b.author = :author,b.genre =:genre ,b.overview = :overview,b.price = :price WHERE b.id=:id ")
+	public Book updateBookRecord(/*@Param("id") int id,@Param("bookname") String bookname,@Param("author") String author,@Param("genre") String genre,
+			@Param("overview") String overview,@Param("price") double price*/Book b );
 
 }

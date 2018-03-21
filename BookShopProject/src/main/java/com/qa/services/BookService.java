@@ -15,6 +15,9 @@ public class BookService {
 	public Book createBookRecord(Book b) {
 		return bookRepository.save(b);
 	}
+	public Book updateBookRecord(Book b) {
+		return bookRepository.updateBookRecord(b);
+	}
 
 	public Iterable<Book> getBookById(int id) {
 		return bookRepository.getBookById(id);
