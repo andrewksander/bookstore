@@ -29,30 +29,31 @@
 <body>
 <c:forEach items="${b}" var="book">
 <div class-"container">
-<form action="updateBookRecord" method="post" >
-<%-- <div class="form-group">
+<form action="/edit/{id}/updateBookRecord" method="post" >
+
+<div class="form-group">
 <label for="bookname">ID:</label>
-<input type="text" name="id" value="${book.id}" readonly required/> <br>
-</div> --%>
+<input type="text" name="id" value=${book.id} readonly required/> <br>
+</div> 
 <div class="form-group">
 <label for="bookname">Book Name:</label>
-<input type="text" name="bookname" value="${book.bookname}" required/> <br>
+<input type="text" name="bookname" value=${book.bookname} required/> <br>
 </div>
 <div class="form-group">
 <label for="author"> Author:</label>
-<input type="text" name="author" value="${book.author}" required/> <br>
+<input type="text" name="author" value=${book.author} required/> <br>
 </div>
 <div class="form-group">
 <label for="genre">Genre:</label>
-<input type="text" name="genre" value="${book.genre}" required/> <br>
+<input type="text" name="genre" value=${book.genre} required/> <br>
 </div>
 <div class="form-group">
 <label for="overview">Overview:</label>
-<input type="text" name="overview" value="${book.overview}" required/> <br>
+<input type="text" name="overview" value=${book.overview} required/> <br>
 </div>
 <div class="form-group">
 <label for="price">Price:</label>
-<input type="text" name="price" value="${book.price}" required/> <br>
+<input type="number" name="price" value=${book.price} required/> <br>
 </div>
 <button type="submit" class="btn btn-primary">Edit</button>
 </form>

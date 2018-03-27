@@ -54,9 +54,9 @@ public class MyController {
 		return "book_edit";
 
 	}
-	@RequestMapping("/updateBookRecord")
+	@RequestMapping("/edit/{id}/updateBookRecord")
 	public String updateBookRecord(@ModelAttribute Book b) {
-		bookService.updateBookRecord(b);
+		bookService.createBookRecord(b);
 
 		return "redirect:/admin_page";
 	}

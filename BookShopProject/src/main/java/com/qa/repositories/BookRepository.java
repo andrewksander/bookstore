@@ -18,14 +18,6 @@ public interface BookRepository extends CrudRepository<Book, Integer> {
 	@Modifying
 	@Transactional
 
-	/*@Query("UPDATE b SET WHERE b.id=:id b.bookname =:bookname,b.author = :author,b.genre =:genre ,b.overview = :overview,b.price = :price ")
-
-	public Iterable<Book> updateBook(@Param("id, bookname, author, genre, overview, price") int id, String bookname,
-			String author, String genre, String overview, double price);
-
-	public Iterable<Book> updateBook(@Param("id") int id, @Param("bookname") String bookname,
-			@Param("author") String author, @Param("genre") String genre, @Param("overview") String overview,
-			@Param("price") double price);*/
 
 	@Query("SELECT b from Book b where b.id like :id")
 	public Iterable<Book> getBookById(@Param("id") int id);
@@ -44,9 +36,6 @@ public interface BookRepository extends CrudRepository<Book, Integer> {
 
 	@Query("SELECT b from Book b where b.price = :price")
 	public Iterable<Book> getBookByPrice(@Param("price") double price);
-	//@Modifying
-	@Query ("UPDATE Book b SET b.bookname =:bookname,b.author = :author,b.genre =:genre ,b.overview = :overview,b.price = :price WHERE b.id=:id ")
-	public Book updateBookRecord(/*@Param("id") int id,@Param("bookname") String bookname,@Param("author") String author,@Param("genre") String genre,
-			@Param("overview") String overview,@Param("price") double price*/Book b );
+	
 
 }
